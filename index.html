@@ -4,71 +4,803 @@
 <head>
     <meta charset="utf-8" />
     <meta name="author" content="璀境石" />
-    <meta name="description" content="LuaSTG Community Home Page" />
-    <title>LuaSTG Community</title>
+    <meta name="description" content="LuaSTG Sub engine home page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuaSTG Sub</title>
     <!--<link rel="icon" href="favicon.png" type="image/png" />-->
-    <!--<link rel="stylesheet" href="style.css" />-->
-    <!--<script src="script.js" defer></script>-->
     <link rel="icon"
         href="data:image/png;base64,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MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAACxMAAAsTAQCanBgAAAXyaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA5LjAtYzAwMCA3OS4xNzFjMjdmLCAyMDIyLzA4LzE2LTE4OjAyOjQzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIzLTA4LTE3VDE0OjAyOjEzKzA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTA4LTE3VDE0OjAyOjEzKzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMy0wOC0xN1QxNDowMjoxMyswODowMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NTU0ODIyNy00ZDA5LTFmNGEtOWE1Ny02ODVkZGMxNThhOTgiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDpkZmE4MDg1My1kMmFmLWM5NGMtOTE4OS0yYTY2NGY4ZjIzOTciIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YTBkNzE4ZS0xNTE2LTczNDItYjQ2Ni01MWQ2NGQ1MTMwYzYiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjlhMGQ3MThlLTE1MTYtNzM0Mi1iNDY2LTUxZDY0ZDUxMzBjNiIgc3RFdnQ6d2hlbj0iMjAyMy0wOC0xN1QxNDowMjoxMyswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo2NTU0ODIyNy00ZDA5LTFmNGEtOWE1Ny02ODVkZGMxNThhOTgiIHN0RXZ0OndoZW49IjIwMjMtMDgtMTdUMTQ6MDI6MTMrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyNC4wIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4PXaG2AAAAR0lEQVQokWNgIAP8//8fKxfC+I8EiNWAroz6GrA4CVkIk4vFBtI00B4QdBKBeIArwul0TDMwNaDYgKyTKA0EbcDiB9I0kAQAj9sb84YH9eMAAAAASUVORK5CYII="
         type="image/png" />
+    <!--<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">-->
+    <!-- 2023-08-17 -->
     <style>
-        h1 {
+        /* Global variables. */
+        :root,
+        ::backdrop {
+            /* Set sans-serif & mono fonts */
+            --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+                "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+                "Helvetica Neue", sans-serif;
+            --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+            --standard-border-radius: 5px;
+
+            /* Default (light) theme */
+            --bg: #fff;
+            --accent-bg: #f5f7ff;
+            --text: #212121;
+            --text-light: #585858;
+            --border: #898EA4;
+            --accent: #0d47a1;
+            --code: #d81b60;
+            --preformatted: #444;
+            --marked: #ffdd33;
+            --disabled: #efefef;
+        }
+
+        /* Dark theme */
+        @media (prefers-color-scheme: dark) {
+
+            :root,
+            ::backdrop {
+                color-scheme: dark;
+                --bg: #212121;
+                --accent-bg: #2b2b2b;
+                --text: #dcdcdc;
+                --text-light: #ababab;
+                --accent: #ffb300;
+                --code: #f06292;
+                --preformatted: #ccc;
+                --disabled: #111;
+            }
+
+            /* Add a bit of transparency so light media isn't so glaring in dark mode */
+            img,
+            video {
+                opacity: 0.8;
+            }
+        }
+
+        /* Reset box-sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Reset default appearance */
+        textarea,
+        select,
+        input,
+        progress {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        html {
+            /* Set the font globally */
+            font-family: var(--sans-font);
+            scroll-behavior: smooth;
+        }
+
+        /* Make the body a nice central block */
+        body {
+            color: var(--text);
+            background-color: var(--bg);
+            font-size: 1.15rem;
+            line-height: 1.5;
+            display: grid;
+            grid-template-columns: 1fr min(45rem, 90%) 1fr;
+            margin: 0;
+        }
+
+        body>* {
+            grid-column: 2;
+        }
+
+        /* Make the header bg full width, but the content inline with body */
+        body>header {
+            background-color: var(--accent-bg);
+            border-bottom: 1px solid var(--border);
             text-align: center;
+            padding: 0 0.5rem 2rem 0.5rem;
+            grid-column: 1 / -1;
+        }
+
+        body>header h1 {
+            max-width: 1200px;
+            margin: 1rem auto;
+        }
+
+        body>header p {
+            max-width: 40rem;
+            margin: 1rem auto;
+        }
+
+        /* Add a little padding to ensure spacing is correct between content and header > nav */
+        main {
+            padding-top: 1.5rem;
+        }
+
+        body>footer {
+            margin-top: 4rem;
+            padding: 2rem 1rem 1.5rem 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Format headers */
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.6rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-top: 3rem;
+        }
+
+        h4 {
+            font-size: 1.44rem;
+        }
+
+        h5 {
+            font-size: 1.15rem;
+        }
+
+        h6 {
+            font-size: 0.96rem;
+        }
+
+        /* Prevent long strings from overflowing container */
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            overflow-wrap: break-word;
+        }
+
+        /* Fix line height when title wraps */
+        h1,
+        h2,
+        h3 {
+            line-height: 1.1;
+        }
+
+        /* Reduce header size on mobile */
+        @media only screen and (max-width: 720px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2.1rem;
+            }
+
+            h3 {
+                font-size: 1.75rem;
+            }
+
+            h4 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Format links & buttons */
+        a,
+        a:visited {
+            color: var(--accent);
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        button,
+        .button,
+        a.button,
+        /* extra specificity to override a */
+        input[type="submit"],
+        input[type="reset"],
+        input[type="button"],
+        label[type="button"] {
+            border: none;
+            border-radius: var(--standard-border-radius);
+            background-color: var(--accent);
+            font-size: 1rem;
+            color: var(--bg);
+            padding: 0.7rem 0.9rem;
+            margin: 0.5rem 0;
+            text-decoration: none;
+            font-family: inherit;
+            line-height: normal;
+        }
+
+        .button[aria-disabled="true"],
+        input:disabled,
+        textarea:disabled,
+        select:disabled,
+        button[disabled] {
+            cursor: not-allowed;
+            background-color: var(--disabled);
+            color: var(--text-light)
+        }
+
+        input[type="range"] {
+            padding: 0;
+        }
+
+        /* Set the cursor to '?' on an abbreviation and style the abbreviation to show that there is more information underneath */
+        abbr[title] {
+            cursor: help;
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+        }
+
+        button:enabled:hover,
+        .button:not([aria-disabled="true"]):hover,
+        input[type="submit"]:enabled:hover,
+        input[type="reset"]:enabled:hover,
+        input[type="button"]:enabled:hover,
+        label[type="button"]:hover {
+            filter: brightness(1.4);
+            cursor: pointer;
+        }
+
+        .button:focus-visible,
+        button:focus-visible:where(:enabled),
+        input:enabled:focus-visible:where([type="submit"],
+            [type="reset"],
+            [type="button"]) {
+            outline: 2px solid var(--accent);
+            outline-offset: 1px;
+        }
+
+        /* Format navigation */
+        header>nav {
+            font-size: 1rem;
+            line-height: 2;
+            padding: 1rem 0 0 0;
+        }
+
+        /* Use flexbox to allow items to wrap, as needed */
+        header>nav ul,
+        header>nav ol {
+            align-content: space-around;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* List items are inline elements, make them behave more like blocks */
+        header>nav ul li,
+        header>nav ol li {
+            display: inline-block;
+        }
+
+        header>nav a,
+        header>nav a:visited {
+            margin: 0 0.5rem 1rem 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--standard-border-radius);
+            color: var(--text);
+            display: inline-block;
+            padding: 0.1rem 1rem;
+            text-decoration: none;
+        }
+
+        header>nav a:hover,
+        header>nav a.current,
+        header>nav a[aria-current="page"] {
+            border-color: var(--accent);
+            color: var(--accent);
+            cursor: pointer;
+        }
+
+        /* Reduce nav side on mobile */
+        @media only screen and (max-width: 720px) {
+            header>nav a {
+                border: none;
+                padding: 0;
+                text-decoration: underline;
+                line-height: 1;
+            }
+        }
+
+        /* Consolidate box styling */
+        aside,
+        details,
+        pre,
+        progress {
+            background-color: var(--accent-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--standard-border-radius);
+            margin-bottom: 1rem;
+        }
+
+        aside {
+            font-size: 1rem;
+            width: 30%;
+            padding: 0 15px;
+            margin-inline-start: 15px;
+            float: right;
+        }
+
+        *[dir="rtl"] aside {
+            float: left;
+        }
+
+        /* Make aside full-width on mobile */
+        @media only screen and (max-width: 720px) {
+            aside {
+                width: 100%;
+                float: none;
+                margin-inline-start: 0;
+            }
+        }
+
+        article,
+        fieldset,
+        dialog {
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: var(--standard-border-radius);
+            margin-bottom: 1rem;
+        }
+
+        article h2:first-child,
+        section h2:first-child {
+            margin-top: 1rem;
+        }
+
+        section {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 1rem;
+            margin: 3rem 0;
+        }
+
+        /* Don't double separators when chaining sections */
+        section+section,
+        section:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        section:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        details {
+            padding: 0.7rem 1rem;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 0.7rem 1rem;
+            margin: -0.7rem -1rem;
+            word-break: break-all;
+        }
+
+        details[open]>summary+* {
+            margin-top: 0;
+        }
+
+        details[open]>summary {
+            margin-bottom: 0.5rem;
+        }
+
+        details[open]> :last-child {
+            margin-bottom: 0;
+        }
+
+        /* Format tables */
+        table {
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        td,
+        th {
+            border: 1px solid var(--border);
+            text-align: start;
+            padding: 0.5rem;
+        }
+
+        th {
+            background-color: var(--accent-bg);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            /* Set every other cell slightly darker. Improves readability. */
+            background-color: var(--accent-bg);
+        }
+
+        table caption {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Format forms */
+        textarea,
+        select,
+        input {
+            font-size: inherit;
+            font-family: inherit;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--standard-border-radius);
+            box-shadow: none;
+            max-width: 100%;
+            display: inline-block;
+        }
+
+        label {
+            display: block;
+        }
+
+        textarea:not([cols]) {
+            width: 100%;
+        }
+
+        /* Add arrow to drop-down */
+        select:not([multiple]) {
+            background-image: linear-gradient(45deg, transparent 49%, var(--text) 51%),
+                linear-gradient(135deg, var(--text) 51%, transparent 49%);
+            background-position: calc(100% - 15px), calc(100% - 10px);
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+            padding-inline-end: 25px;
+        }
+
+        *[dir="rtl"] select:not([multiple]) {
+            background-position: 10px, 15px;
+        }
+
+        /* checkbox and radio button style */
+        input[type="checkbox"],
+        input[type="radio"] {
+            vertical-align: middle;
+            position: relative;
+            width: min-content;
+        }
+
+        input[type="checkbox"]+label,
+        input[type="radio"]+label {
+            display: inline-block;
+        }
+
+        input[type="radio"] {
+            border-radius: 100%;
+        }
+
+        input[type="checkbox"]:checked,
+        input[type="radio"]:checked {
+            background-color: var(--accent);
+        }
+
+        input[type="checkbox"]:checked::after {
+            /* Creates a rectangle with colored right and bottom borders which is rotated to look like a check mark */
+            content: " ";
+            width: 0.18em;
+            height: 0.32em;
+            border-radius: 0;
+            position: absolute;
+            top: 0.05em;
+            left: 0.17em;
+            background-color: transparent;
+            border-right: solid var(--bg) 0.08em;
+            border-bottom: solid var(--bg) 0.08em;
+            font-size: 1.8em;
+            transform: rotate(45deg);
+        }
+
+        input[type="radio"]:checked::after {
+            /* creates a colored circle for the checked radio button  */
+            content: " ";
+            width: 0.25em;
+            height: 0.25em;
+            border-radius: 100%;
+            position: absolute;
+            top: 0.125em;
+            background-color: var(--bg);
+            left: 0.125em;
+            font-size: 32px;
+        }
+
+        /* Makes input fields wider on smaller screens */
+        @media only screen and (max-width: 720px) {
+
+            textarea,
+            select,
+            input {
+                width: 100%;
+            }
+        }
+
+        /* Set a height for color input */
+        input[type="color"] {
+            height: 2.5rem;
+            padding: 0.2rem;
+        }
+
+        /* do not show border around file selector button */
+        input[type="file"] {
+            border: 0;
+        }
+
+        /* Misc body elements */
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            margin: 1rem auto;
+        }
+
+        mark {
+            padding: 2px 5px;
+            border-radius: var(--standard-border-radius);
+            background-color: var(--marked);
+            color: black;
+        }
+
+        mark a {
+            color: #0d47a1;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--standard-border-radius);
+        }
+
+        figure {
+            margin: 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        blockquote {
+            margin-inline-start: 2rem;
+            margin-inline-end: 0;
+            margin-block: 2rem;
+            padding: 0.4rem 0.8rem;
+            border-inline-start: 0.35rem solid var(--accent);
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        cite {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: normal;
+        }
+
+        dt {
+            color: var(--text-light);
+        }
+
+        /* Use mono font for code elements */
+        code,
+        pre,
+        pre span,
+        kbd,
+        samp {
+            font-family: var(--mono-font);
+            color: var(--code);
+        }
+
+        kbd {
+            color: var(--preformatted);
+            border: 1px solid var(--preformatted);
+            border-bottom: 3px solid var(--preformatted);
+            border-radius: var(--standard-border-radius);
+            padding: 0.1rem 0.4rem;
+        }
+
+        pre {
+            padding: 1rem 1.4rem;
+            max-width: 100%;
+            overflow: auto;
+            color: var(--preformatted);
+        }
+
+        /* Fix embedded code within pre */
+        pre code {
+            color: var(--preformatted);
+            background: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Progress bars */
+        /* Declarations are repeated because you */
+        /* cannot combine vendor-specific selectors */
+        progress {
+            width: 100%;
+        }
+
+        progress:indeterminate {
+            background-color: var(--accent-bg);
+        }
+
+        progress::-webkit-progress-bar {
+            border-radius: var(--standard-border-radius);
+            background-color: var(--accent-bg);
+        }
+
+        progress::-webkit-progress-value {
+            border-radius: var(--standard-border-radius);
+            background-color: var(--accent);
+        }
+
+        progress::-moz-progress-bar {
+            border-radius: var(--standard-border-radius);
+            background-color: var(--accent);
+            transition-property: width;
+            transition-duration: 0.3s;
+        }
+
+        progress:indeterminate::-moz-progress-bar {
+            background-color: var(--accent-bg);
+        }
+
+        dialog {
+            max-width: 40rem;
+            margin: auto;
+        }
+
+        dialog::backdrop {
+            background-color: var(--bg);
+            opacity: 0.8;
+        }
+
+        @media only screen and (max-width: 720px) {
+            dialog {
+                max-width: 100%;
+                margin: auto 1em;
+            }
+        }
+
+        /* Superscript & Subscript */
+        /* Prevent scripts from affecting line-height. */
+        sup,
+        sub {
+            vertical-align: baseline;
+            position: relative;
+        }
+
+        sup {
+            top: -0.4em;
+        }
+
+        sub {
+            top: 0.3em;
+        }
+
+        /* Classes for notices */
+        .notice {
+            background: var(--accent-bg);
+            border: 2px solid var(--border);
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin: 2rem 0;
         }
     </style>
+    <!--<link rel="stylesheet" href="style.css" />-->
+    <!--<script src="script.js" defer></script>-->
 </head>
 
 <body>
-    <h1 >LuaSTG Community</h1>
-
-    <h2>LuaSTG Sub Engine</h2>
-
-    <h3>Overview</h3>
-    <p>
-        TBD.
-    </p>
-    <h3>Open source project</h3>
-    <ul>
-        <li><a href=https://github.com/Legacy-LuaSTG-Engine/LuaSTG-Sub />GitHub</a></li>
-        <li><a href=https://gitee.com/LuaSTG-Community/LuaSTG-Sub />Gitee (mirror)</a></li>
-    </ul>
-
-    <h2>LuaSTG After Ex Plus Framework</h2>
-
-    <h3>Overview</h3>
-    <p>
-        TBD.
-    </p>
-    <h3>Open source project</h3>
-    <ul>
-        <li><a href=https://github.com/Legacy-LuaSTG-Engine/Bundle-After-Ex-Plus />GitHub</a></li>
-    </ul>
-
-    <h2>LuaSTG Editor Sharp</h2>
-
-    <h3>Overview</h3>
-    <p>
-        TBD.
-    </p>
-    <h3>Open source project</h3>
-    <ul>
-        <li><a href=https://github.com/czh098tom/LuaSTG-Editor-Sharp />GitHub</a></li>
-    </ul>
-
-    <h2>Community</h2>
-    <ul>
-        <li>QQ Group <b>LuaSTG交流群</b>: 230927410</li>
-        <li>QQ Group <b>LuaSTG稳流群</b>: (closed)</li>
-        <li>QQ Group <b>LuaSTG寒流群</b>: 563868788</li>
-        <li>QQ Group <b>LuaSTG交流群</b>: 673067136</li>
-    </ul>
-
-    <h2>Download</h2>
-    <ul>
-        <li><a href=https://files.luastg-sub.com />OneDrive</a></li>
-        <li><a href=https://luastg.ritsukage.com />Ritsukage Cloud</a></li>
-    </ul>
+    <header>
+        <h1>LuaSTG Sub</h1>
+        <p>Modernized LuaSTG engine designed for Windows 10/11</p>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/#Section_engine">Engine</a>
+            <a href="/#Section_framework">Framework</a>
+            <a href="/#Section_editor">Editor</a>
+            <a href="/#Section_download">Download</a>
+            <a href="/#Section_community">Community</a>
+        </nav>
+    </header>
+    <main>
+        <article id="Section_engine">
+            <h2>LuaSTG Sub Engine</h2>
+            <h3>Overview</h3>
+            <p>
+                TBD.
+            </p>
+            <h3>Open source project</h3>
+            <ul>
+                <li><a href="https://github.com/Legacy-LuaSTG-Engine/LuaSTG-Sub">GitHub</a></li>
+                <li><a href="https://gitee.com/LuaSTG-Community/LuaSTG-Sub">Gitee (mirror)</a></li>
+            </ul>
+        </article>
+        <article id="Section_framework">
+            <h2>LuaSTG After Ex Plus Framework</h2>
+            <h3>Overview</h3>
+            <p>
+                TBD.
+            </p>
+            <h3>Open source project</h3>
+            <ul>
+                <li><a href="https://github.com/Legacy-LuaSTG-Engine/Bundle-After-Ex-Plus">GitHub</a></li>
+            </ul>
+        </article>
+        <article id="Section_editor">
+            <h2>LuaSTG Editor Sharp</h2>
+            <h3>Overview</h3>
+            <p>
+                TBD.
+            </p>
+            <h3>Open source project</h3>
+            <ul>
+                <li><a href="https://github.com/czh098tom/LuaSTG-Editor-Sharp">GitHub</a></li>
+            </ul>
+        </article>
+        <article id="Section_download">
+            <h2>Download</h2>
+            <ul>
+                <li><a href="https://files.luastg-sub.com">OneDrive</a></li>
+                <li><a href="https://luastg.ritsukage.com">Ritsukage Cloud</a></li>
+                <li><a href="/#Section_community">QQ Group</a></li>
+            </ul>
+        </article>
+        <article id="Section_community">
+            <h2>Community</h2>
+            <p>
+                This is an open community.
+            </p>
+            <p>
+                Ask questions,
+                discuss technologies,
+                share works,
+                report problems...
+            </p>
+            <p>
+                Also, receive the latest development news, tutorials, technical documentation
+                and try the latest version.
+            </p>
+            <ul>
+                <li>QQ Group <b>LuaSTG交流群</b>: 230927410</li>
+                <li>QQ Group <b>LuaSTG稳流群</b>: (closed)</li>
+                <li>QQ Group <b>LuaSTG寒流群</b>: 563868788</li>
+                <li>QQ Group <b>LuaSTG交流群</b>: 673067136</li>
+            </ul>
+        </article>
+    </main>
+    <footer>
+        <p>LuaSTG Community.</p>
+    </footer>
 </body>
 
 </html>
