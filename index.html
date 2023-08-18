@@ -737,7 +737,20 @@
             <h2>LuaSTG Sub Engine</h2>
             <h3>Overview</h3>
             <p>
-                TBD.
+                <b>LuaSTG Sub</b> is a fork of <b>LuaSTG Ex Plus</b>, 
+                and <b>LuaSTG Ex Plus</b> is a fork of <b>LuaSTG Plus</b>.
+            </p>
+            <p>
+                Compared to previous 2 branches, <b>LuaSTG Sub</b> is heavily modernized  
+                to adapt to Windows 10/11. 
+                Support DPI awareness, 
+                port to Direct3D 11 and XAudio2, 
+                better performance, 
+                improved free size window support, etc.
+            </p>
+            <p>
+                Overall, it is designed as a replacement for the 
+                legacy <b>LuaSTG Ex Plus</b> and <b>LuaSTG Plus</b>.
             </p>
             <figure>
                 <style>
@@ -854,6 +867,107 @@
                     </tr>
                 </table>
             </figure>
+            <p>
+                It is worth noting that the author of LuaSTG Plus 
+                launched a new branch <a href="https://github.com/9chu/LuaSTGPlus"><b>LuaSTG Plus V2</b></a> in 2022, 
+                which is cross-platform 
+                and is currently in the early development stage.
+            </p>
+            <p>
+                Another cross-platform branch is <a href="https://github.com/Xrysnow/LuaSTG-x"><b>LuaSTG X</b></a>, 
+                which is based on <b>cocos2d-x</b> 
+                and provides more powerful functions.
+            </p>
+            <figure>
+                <style>
+                    td.obsolete {
+                        background-color: lightcoral;
+                    }
+                    td.active {
+                        background-color: lightgreen;
+                    }
+                    td.testing {
+                        background-color: yellow;
+                    }
+
+                    @media (prefers-color-scheme: dark) {
+                        td.obsolete {
+                            background-color: darkred;
+                        }
+                        td.active {
+                            background-color: darkgreen;
+                        }
+                        td.testing {
+                            background-color: darkgoldenrod;
+                        }
+                    }
+                </style>
+                <table>
+                    <tr>
+                        <th>Branch</th>
+                        <th>Platforms</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>LuaSTG</td>
+                        <td>Windows</td>
+                        <td class="obsolete">Obsolete</td>
+                    </tr>
+                    <tr>
+                        <td>LuaSTG Plus</td>
+                        <td>Windows</td>
+                        <td class="obsolete">Obsolete</td>
+                    </tr>
+                    <tr>
+                        <td>LuaSTG Plus V2</td>
+                        <td>Windows, Linux, MacOS, Web</td>
+                        <td class="testing">Testing</td>
+                    </tr>
+                    <tr>
+                        <td>LuaSTG Ex Plus</td>
+                        <td>Windows</td>
+                        <td class="obsolete">Obsolete</td>
+                    </tr>
+                    <tr>
+                        <td>LuaSTG Sub</td>
+                        <td>Windows</td>
+                        <td class="active">Active</td>
+                    </tr>
+                    <tr>
+                        <td>LuaSTG X</td>
+                        <td>Windows, Linux, Android, MacOS, iOS</td>
+                        <td class="active">Active</td>
+                    </tr>
+                </table>
+            </figure>
+            <p>
+                Currently, the best choice under the Windows platform is <b>LuaSTG Sub</b>, 
+                which has been widely used and verified, 
+                and some games based on it have been released on Steam.
+            </p>
+            <h3>Use cases</h3>
+            <p>Released</p>
+            <ul>
+                <li>东方祈华梦 (on Steam)</li>
+                <li>东方栖霞园 (on Steam)</li>
+                <li>东方远空界 (on Steam)</li>
+                <li>东方琴鼓歌</li>
+                <li>Boss Rush</li>
+                <li>弹幕珏贺讨</li>
+            </ul>
+            <p>Developing</p>
+            <ul>
+                <li>东方时裂空</li>
+                <li>东方灵守祀</li>
+                <li>东方谜缘塔</li>
+                <li>东方云源历</li>
+                <li>东方资质疏</li>
+                <li>东方天海瀑</li>
+            </ul>
+            <p>Community activity</p>
+            <ul>
+                <li>周末活动 (every weekend)</li>
+            </ul>
             <h3>Open source project</h3>
             <ul>
                 <li><a href="https://github.com/Legacy-LuaSTG-Engine/LuaSTG-Sub">GitHub</a></li>
@@ -864,7 +978,14 @@
             <h2>LuaSTG After Ex Plus Framework</h2>
             <h3>Overview</h3>
             <p>
-                TBD.
+                <b>LuaSTG After Ex Plus</b>, or <b>LuaSTG aex+</b>, 
+                is a development framework composed of <b>LuaSTG Sub</b> engine, 
+                <b>THlib</b> (for LuaSTG Sub) and other tools.
+            </p>
+            <p>
+                With <b>LuaSTG Editor Sharp</b>, 
+                developers can quickly create bullets, boss battles, and stages. 
+                Optionally, package these works as a mod and share with others.
             </p>
             <h3>Open source project</h3>
             <ul>
@@ -875,7 +996,14 @@
             <h2>LuaSTG Editor Sharp</h2>
             <h3>Overview</h3>
             <p>
-                TBD.
+                <b>LuaSTG Editor Sharp</b> is a GUI program for quickly 
+                create bullets, boss battles, stages. 
+                It can convert the node tree into lua scripts, 
+                reducing the difficulty of getting started.
+            </p>
+            <p>
+                It is highly recommended to use it with 
+                <b>LuaSTG After Ex Plus (aex+)</b>.
             </p>
             <h3>Open source project</h3>
             <ul>
